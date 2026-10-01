@@ -21,10 +21,6 @@ function setActivity() {
 client.on('ready', () => {
     console.log('connected to discord');
     setActivity();
-
-    setInterval(() => { // refresh the activity
-        setActivity();
-    }, 15000);
 });
 
 // login to the local discord client
