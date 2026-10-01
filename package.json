@@ -1,0 +1,24 @@
+{
+  "name": "homework-discord-rpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/automagicle/homework-discord-rp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/automagicle/homework-discord-rp/issues"
+  },
+  "homepage": "https://github.com/automagicle/homework-discord-rp#readme",
+  "dependencies": {
+    "discord-rpc": "^4.0.1"
+  }
+}
