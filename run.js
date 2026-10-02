@@ -3,18 +3,43 @@ const client = new RPC.Client({ transport: 'ipc' });
 
 const clientId = '1555027753546420285'; 
 
-function setActivity() {
-    client.setActivity({
+const type = process.argv[2] ?? 'homework'; // get argument from cli start as npm start -- <type>
+
+const activities = { // note: you must comment out small image properties if it's empty
+    homework: {
         details: "i'm doing homework", // first line
         state: "no, i'm 𝙥𝙡𝙖𝙮𝙞𝙣𝙜 homework", // second line
         startTimestamp: new Date(), // time elapsed
         largeImageKey: 'https://static2.klipy.com/ii/71b2873e478b9d8d0482ea3ec777ba7f/6b/8e/lVCBUPa2.gif',   // Name of asset uploaded in portal, or a direct URL
         largeImageText: 'mm hmm',  // Text when hovering over the large image
         //smallImageKey: '', // this is the little circle icon in the corner of the main image
-        //smallImageText: '',
+        //smallImageText: '', // text when hovering over the small image
         buttons: [ // up to 2
-            {label: 'github code', url: 'https://github.com/automagicle/homework-discord-rpc'},
+            {label: 'github code!', url: 'https://github.com/automagicle/homework-discord-rpc'},
         ]
+    },
+    class: {
+        details: "i'm in class",
+        state: "totally paying attention",
+        startTimestamp: new Date(), // time elapsed
+        largeImageKey: 'https://static2.klipy.com/ii/d6b0ce929193df3c242ac34b5654d2ce/01/51/cXPHw3IO.gif',   // Name of asset uploaded in portal, or a direct URL
+        largeImageText: 'locked in',  // Text when hovering over the large image
+        //smallImageKey: '', // this is the little circle icon in the corner of the main image
+        //smallImageText: '', // text when hovering over the small image
+        buttons: [ // up to 2
+            {label: 'github code!', url: 'https://github.com/automagicle/homework-discord-rpc'},
+        ]
+    },
+};
+
+if (!['class', 'homework'].includes(type)) {
+    console.error('Usage: npm start <class|homework>');
+    process.exit(1);
+}
+
+function setActivity() {
+    client.setActivity({
+        ...activities[type], // insert dynamic properties from activities dict
     }).catch(console.error);
 }
 
