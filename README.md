@@ -7,7 +7,8 @@ A simple and easily customizable script that shows discord rich presence for hom
 To use:
 ```
 npm install
-npm start
+npm start homework
 ```
+(can replace homework with class)
 
 Alternatively, run `node run.js`
